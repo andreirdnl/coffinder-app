@@ -1,0 +1,42 @@
+export const products = [
+  {
+    id: "1231",
+    code: 23,
+    name: "Espresso",
+    description: "Strong experience in a small cup",
+    discounts: 3,
+    price: 12.5,
+  },
+  {
+    id: "2312",
+    code: 57,
+    name: "Cappuccino",
+    description: "Equillibrium between coffie, milk and foam",
+    discounts: 0,
+    price: 15.0,
+  },
+  {
+    id: "2114",
+    code: 112,
+    name: "Latte",
+    description: "Creamy and pleasent",
+    discounts: 1,
+    price: 10.5,
+  },
+  {
+    id: "4444",
+    code: 160,
+    name: "Americano",
+    description: "Black coffee with a pinch of nuts",
+    discounts: 0,
+    price: 13,
+  },
+  {
+    id: "5234",
+    code: 201,
+    name: "Macchiato",
+    description: "Perfect mix of coffee and milk",
+    discounts: 0,
+    price: 12,
+  },
+];
