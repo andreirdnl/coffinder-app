@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { products } from "../mock/products";
+import axios from "axios";
 
 type Discount = {
   id: string;
@@ -97,7 +98,12 @@ export const DiscountModal = ({ isOpen, onClose, handleDiscount }: any) => {
           <Button
             colorScheme="blue"
             mr={3}
-            onClick={() => {
+            onClick={async () => {
+              const response = await axios.post("http://localhost:1400/api/discounts", {
+                ...newDiscount,
+              });
+              console.log(response);
+
               handleDiscount(newDiscount);
               setNewDiscount({
                 id: `${Math.floor(100000 + Math.random() * 9000)}`,

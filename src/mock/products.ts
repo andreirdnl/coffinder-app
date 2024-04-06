@@ -1,7 +1,7 @@
 export const products = [
   {
     id: "1231",
-    code: 23,
+    code: 5031,
     name: "Espresso",
     description: "Strong experience in a small cup",
     discounts: 3,

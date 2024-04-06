@@ -1,15 +1,29 @@
 import { Box, Button } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ProductsTable } from "../Components/ProductsTable";
 import { ProductModal } from "../Components/ProductModal";
 import { products as data } from "../mock/products";
+import axios from "axios";
 
 export const Products = ({ discountState }: any) => {
   const [isOpen, setOpen] = useState(false);
   const handleClose = () => setOpen(false);
 
-  const [products, setProducts] = useState(data);
+  const [products, setProducts] = useState([] as any[]);
   const handleProduct = (product: any) => setProducts([...products, product]);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      const { data: response } = await axios.get(
+        "http://localhost:1400/api/products"
+      );
+      console.log("data", response);
+
+      setProducts(response);
+    };
+
+    getProducts();
+  }, []);
 
   const [discounts, setDiscounts] = discountState;
 

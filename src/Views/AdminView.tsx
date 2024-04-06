@@ -6,13 +6,26 @@ import {
   TabPanels,
   Tabs,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Products } from "./Products";
 import { Discount } from "./Discounts";
-import { discounts as data } from "../mock/discounts";
+import { discounts as data, discounts } from "../mock/discounts";
+import axios from "axios";
 
 export const AdminView = () => {
-  const discountState = useState(data);
+  const discountState = useState();
+
+  useEffect(() => {
+    const getDiscounts = async () => {
+      const { data } = await axios.get("http://localhost:1400/api/discounts");
+      console.log("data", data);
+
+      const [discount, setDiscount] = discountState;
+      setDiscount(data);
+    };
+
+    getDiscounts();
+  }, []);
 
   return (
     <Tabs mt="50px" p="50px" variant="unstyled">

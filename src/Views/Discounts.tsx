@@ -1,6 +1,5 @@
 import { Box, Button } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { discounts as data } from "../mock/discounts";
 import { DiscountsTable } from "../Components/DiscountsTable";
 import { DiscountModal } from "../Components/DiscountModal";
 
